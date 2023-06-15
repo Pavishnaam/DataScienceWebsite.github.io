@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatiable" content="ie=edge">
+    <title>Aniket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="u.css">
+    <!-- BOOTSTRAP 4.7 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- TAILWIND CSS -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" />
+
+    <!-- GOOGLE FONTS (MONTSERRAT) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- CSS FILE LINK -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!--Favicon-->
+    <link rel="icon" href="images/data-sciencee.png" />
+
+    <!-- icon pack -->
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Chat Bot -->
+    <link rel="stylesheet" href="/chatbot/style.css" />
+
+    <!-- icon pack -->
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Chat Bot -->
+    <link rel="stylesheet" href="./chatbot/style.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- SWIPER JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <style>
+        /* CSS for the typewriter effect */
+        
+        .typewriter {
+            overflow: hidden;
+            /* Ensures the text is hidden initially */
+            white-space: nowrap;
+            /* Prevents line breaks */
+            border-right: .15em;
+            /* Creates the blinking cursor effect */
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            text-align: center;
+            /* Aligns the text in the center */
+            margin: 0 auto;
+            /* Centers the element horizontally */
+        }
+        /* Keyframes for the typing animation */
+        
+        @keyframes typing {
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
+        }
+        /* Keyframes for the blinking cursor animation */
+        
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent
+            }
+            50% {
+                border-color: orange;
+            }
+        }
+    </style>
+
+</head>
+<style>
+    head,
+    body {
+        margin: 5px;
+        padding: 5 px;
+    }
+</style>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="#"><img src="" alt ""></a>
+
+            <div class="navbar" id="NavBar">
+                <i class="fa fa-times" onclick="hideMenu()">&times</i>
+
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#courses">COURSES</a></li>
+                    <li><a href="#faqs">FAQ</a></li>
+
+                    <li><a href="#call">FOLLOW US</a></li>
+                    <li><a href="./login/index.html">SIGN UP</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()">&#9776 </i>
+        </nav>
+
+        <div class="text-box">
+            <h1><b><u>LEARN DATA SCIENCE INTERACTIVELY</u></b></h1><br><br>
+            <h2>Build projects, practice and learn to code from scratch - without leaving your browser
+            </h2><br><br>
+            <h1 class="typewriter">DATA IS</h1>
+
+            <script>
+                // JavaScript to initialize the typewriter effect
+                const typeWriter = document.querySelector('.typewriter');
+                const data = [
+                    "FUTURE",
+                    "BIG",
+                    "BEAUTIFUL",
+                    "VALUABLE",
+                    "GROWING"
+                ];
+                let currentDataIndex = 0;
+                let currentWordIndex = 0;
+                let isErasing = false;
+
+                function type() {
+                    const currentWord = data[currentDataIndex];
+                    const text = typeWriter.textContent;
+
+                    if (!isErasing) {
+                        if (currentWordIndex < currentWord.length) {
+                            typeWriter.textContent = "DATA IS " + currentWord.substring(0, currentWordIndex + 1);
+                            currentWordIndex++;
+                            setTimeout(type, 100); // Adjust the typing speed by changing the timeout value
+                        } else {
+                            isErasing = true;
+                            setTimeout(erase, 1000); // Delay before starting erasing
+                        }
+                    } else {
+                        if (currentWordIndex >= 0) {
+                            typeWriter.textContent = "DATA IS " + currentWord.substring(0, currentWordIndex);
+                            currentWordIndex--;
+                            setTimeout(erase, 100); // Adjust the erasing speed by changing the timeout value
+                        } else {
+                            isErasing = false;
+                            currentDataIndex = (currentDataIndex + 1) % data.length;
+                            setTimeout(type, 1000); // Delay before starting typing next data
+                        }
+                    }
+                }
+
+                function erase() {
+                    const currentWord = data[currentDataIndex];
+                    const text = typeWriter.textContent;
+
+                    if (currentWordIndex >= 0) {
+                        typeWriter.textContent = "DATA IS " + currentWord.substring(0, currentWordIndex);
+                        currentWordIndex--;
+                        setTimeout(erase, 100); // Adjust the erasing speed by changing the timeout value
+                    } else {
+                        isErasing = false;
+                        currentDataIndex = (currentDataIndex + 1) % data.length;
+                        setTimeout(type, 1000); // Delay before starting typing next data
+                    }
+                }
+
+                type();
+            </script>
+
+        </div>
+
+    </section>
+    <section class="campus" id="about">
+        <div class="row">
+            <div class="campus-col">
+                <img src="./images/domain.png" alt="">
+
+            </div>
+            <div class="campus-col">
+                <h3>Data Science is the field of study that combines domain expertise , programming skills , knowledge of mathematics and statistics to extract meaningful insights from data for business.
+                    <br /><br /> It is a multidisciplinary approach that combines principles and practices from the fields of artificial intelligence and above fields to analyze large amounts of data. <br /><br /> This analysis helps data scientists to
+                    ask and answer questions like what happened , why it happened , what will happen , and what can be done with the results.</h3>
+            </div>
+        </div>
+        </div>
+
+        <section class="campus" id="courses">
+            <h1><strong>COURSES</strong></h1>
+            <p>Data science courses have a promising scope in today's data-driven world. As businesses increasingly rely on data to make informed decisions, data scientists are in high demand.</p>
+            <div class="row">
+                <div class="campus-col">
+                    <img src="./images/3.jpg" alt="">
+                    <div class="layer">
+                        <a href="course.html">
+                            <h3>Data science 01</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="campus-col">
+                    <img src="./images/3.jpg" alt="">
+                    <div class="layer">
+                        <a href="course.html">
+                            <h3>Data Science 02</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="campus-col">
+                    <img src="./images/3.jpg" alt="">
+                    <div class="layer">
+                        <a href="course.html">
+                            <h3>Data Science 03
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--====================== END OF COURSES =====================-->
+
+        <section class="faqs" id="faqs">
+            <h2 class="headingh2" data-aos="zoom-in">Frequently Asked Questions</h2>
+            <div class="container faqs__container">
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>How do I know the right courses for me?</h4>
+                        <p>
+                            Determine your specific goals and objectives in the field of data science. Are you looking to acquire a broad understanding of the field or specialize in a specific area. Knowing your goals will help you narrow down the course options.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>What programming languages are used in data science?</h4>
+                        <p>
+                            Python and R are the most commonly used programming languages in data science courses due to their extensive libraries and tools for data analysis and machine learning.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>What are the prerequisites for a data science course?</h4>
+                        <p>
+                            To study data science, it is crucial to have a strong foundation in mathematics, including statistics and linear algebra. Additionally, proficiency in programming languages like Python or R is essential for data manipulation and analysis.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>What is the meaning of Deep Learning</h4>
+                        <p>
+                            Deep learning is a subset of machine learning that trains neural networks to mimic the human brain, enabling automatic learning through interconnected layers. It utilizes backpropagation to adjust network weights and improve accuracy in predictions.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>What is Machine learning?</h4>
+                        <p>
+                            Machine learning focuses on developing algorithms that enable computers to learn and make predictions or decisions without explicit programming instructions, based on patterns and data. It involves training models on data to improve their performance
+                            over time.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>How to kick start your career in Data science</h4>
+                        <p>
+                            Acquire a strong foundation in statistics and programming languages like Python or R. Gain hands-on experience through projects, internships, and online courses to showcase your skills and build a professional network within the data science community.
+                        </p>
+                    </div>
+                </article>
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>
+                            What job roles are available in the field of data science?
+                        </h4>
+                        <p>
+                            The field of data science offers diverse job roles, including data scientist, data analyst, machine learning engineer, business analyst, data engineer, and data consultant, among others.
+                        </p>
+                    </div>
+                </article>
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>What are the tools and technologies used in data science?</h4>
+                        <p>
+                            Some popular tools and technologies used in the field of data science include Python (with libraries such as Pandas, NumPy, and Scikit-learn), R (with packages like ggplot and caret), and data visualization tools like Tableau and Matplotlib.
+                        </p>
+                    </div>
+                </article>
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>How long do the data science courses typically last?</h4>
+                        <p>
+                            The duration of our data science courses varies depending on the specific course. We offer both short-term intensive courses and longer-term comprehensive programs. The course duration is mentioned in the course details on our website.
+                        </p>
+                    </div>
+                </article>
+                <article class="faq">
+                    <div class="faq__icon"><i class="uil uil-plus"></i></div>
+                    <div class="question__answer">
+                        <h4>Are the courses suitable for non-technical professionals?</h4>
+                        <p>
+                            Yes, we offer data science courses tailored to accommodate learners with non-technical backgrounds. These courses provide a comprehensive introduction to data science concepts and emphasize practical applications without assuming extensive technical knowledge.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        </main>
+        <!--====================== END OF FAQs =====================-->
+
+
+        <!---------------Footer----------------->
+        <footer>
+
+            <div class="footer-menu" class="flex" style="text-align: center;">
+                <ul class="flex">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-info" class="flex">
+                <ul class="flex">
+
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li>Contact Us</li>
+                    <li><a href="tel:+91 0000000000" style="color: white">+91 0000000000</a
+                      ></li>
+                    <li>abc@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-modified" class="flex">
+                <p>Modified by Pavishna</p>
+            </div>
+            <div class="footer-copyright" class="flex">
+                <p>&copy; 2023 | Aniket Sinha</p>
+            </div>
+    
+            
+                <h4 id="call"><strong>Follow Us</strong></h4>
+                <div class="flex">
+                <ul class="flex" id="follow">
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+
+        <!----------------- Javascript ---------------------->
+        <script>
+            var navBar = document.getElementById("NavBar");
+
+            function showMenu() {
+                navBar.style.right = "0";
+            }
+
+            function hideMenu() {
+                navBar.style.right = "-200px";
+            }
+        </script>
+</body>
+
+</html>
